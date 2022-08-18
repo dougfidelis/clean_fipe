@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../brand_page.dart';
+import '../vehicle_type_page.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -15,7 +15,7 @@ class _SplashPageState extends State<SplashPage> {
     Future.delayed(const Duration(seconds: 3)).then((value) {
       Navigator.of(context)
           .pushReplacement(MaterialPageRoute(builder: (context) {
-        return BrandPage();
+        return VehiclePage();
       }));
     });
     super.initState();

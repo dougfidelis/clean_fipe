@@ -34,7 +34,8 @@ class MyApp extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final tmePro = ref.watch(themeMode.state);
     return MaterialApp(
-      home: SplashPage(),
+      debugShowCheckedModeBanner: false,
+      home: const SplashPage(),
       theme: ref.read(themeMode),
     );
   }
