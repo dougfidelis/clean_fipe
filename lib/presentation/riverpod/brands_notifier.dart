@@ -11,7 +11,6 @@ class BrandsNotifier extends StateNotifier<List<BrandEntity>> {
 
   Future<void> getBrandsByVehicleType(String vehicleType) async {
     state = [];
-    await Future.delayed(const Duration(seconds: 5));
     state = await _usecase.getBrandsByVehicleType(vehicleType);
   }
 }
