@@ -73,8 +73,7 @@ class BrandPage extends HookConsumerWidget {
               Visibility(
                 visible: models.isNotEmpty,
                 replacement: const Center(
-                  child: Text('Selecione a marca')
-                ),
+                    child: Text('Selecione a marca')),
                 child: DropdownButtonFormField(
                   isExpanded: false,
                   decoration: InputDecoration(
