@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class FipeInfoEntity {
   final String price;
   final String brand;

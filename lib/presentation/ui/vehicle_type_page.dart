@@ -1,7 +1,8 @@
-import 'package:clean_fipe/presentation/riverpod/brands_provider.dart';
-import 'package:clean_fipe/presentation/ui/brand_page.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../riverpod/brands_riverpod/brands_provider.dart';
+import 'brand_page.dart';
 
 class VehiclePage extends HookConsumerWidget {
   const VehiclePage({Key? key}) : super(key: key);
@@ -27,7 +28,7 @@ class VehiclePage extends HookConsumerWidget {
                         .getBrandsByVehicleType('motos');
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const BrandPage(),
+                        builder: (context) => const BrandPage('motos'),
                       ),
                     );
                   },
@@ -39,7 +40,7 @@ class VehiclePage extends HookConsumerWidget {
                         .getBrandsByVehicleType('carros');
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const BrandPage(),
+                        builder: (context) => const BrandPage('carros'),
                       ),
                     );
                   },
@@ -51,7 +52,7 @@ class VehiclePage extends HookConsumerWidget {
                         .getBrandsByVehicleType('caminhoes');
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const BrandPage(),
+                        builder: (context) => const BrandPage('caminhoes'),
                       ),
                     );
                   },

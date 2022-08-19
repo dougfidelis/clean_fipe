@@ -1,6 +1,6 @@
-import 'package:clean_fipe/data/datasources/get_brands_by_vehicle_type_remote_datasource.dart';
-import 'package:clean_fipe/domain/entities/brand_entity.dart';
-import 'package:clean_fipe/domain/repositories/get_brands_by_vehicle_type_repository.dart';
+import '../../domain/entities/brand_entity.dart';
+import '../../domain/repositories/get_brands_by_vehicle_type_repository.dart';
+import '../datasources/get_brands_by_vehicle_type_remote_datasource.dart';
 
 class GetBrandsByVehicleTypeRepositoryImp
     implements GetBrandsByVehicleTypeRepository {

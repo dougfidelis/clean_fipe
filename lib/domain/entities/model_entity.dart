@@ -6,23 +6,23 @@ class ModelEntity {
     required this.code,
   });
 
-  factory ModelEntity.fromMap(Map<String, dynamic> map) {
-    return ModelEntity(
-      name: map['name'] ?? '',
-      code: map['code'] ?? '',
-    );
-  }
+  // factory ModelEntity.fromMap(Map<String, dynamic> map) {
+  //   return ModelEntity(
+  //     name: map['name'] ?? '',
+  //     code: map['code'] ?? '',
+  //   );
+  // }
 
-  @override
-  String toString() => 'Model(name: $name, code: $code)';
+  // @override
+  // String toString() => 'Model(name: $name, code: $code)';
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+  // @override
+  // bool operator ==(Object other) {
+  //   if (identical(this, other)) return true;
 
-    return other is ModelEntity && other.name == name && other.code == code;
-  }
+  //   return other is ModelEntity && other.name == name && other.code == code;
+  // }
 
-  @override
-  int get hashCode => name.hashCode ^ code.hashCode;
+  // @override
+  // int get hashCode => name.hashCode ^ code.hashCode;
 }

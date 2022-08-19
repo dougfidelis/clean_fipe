@@ -4,7 +4,7 @@ import 'package:clean_fipe/domain/usecases/get_brands_by_vehicle_type_usecase.da
 import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../domain/entities/brand_entity.dart';
+import '../../../domain/entities/brand_entity.dart';
 import 'brands_notifier.dart';
 
 final dioProvider = Provider((ref) => Dio());
