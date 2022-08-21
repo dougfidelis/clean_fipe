@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../riverpod/brands_riverpod/brands_provider.dart';
+import '../riverpod/fipe_info_riverpod/fipe_info_provider.dart';
+import '../riverpod/models_riverpod/models_provider.dart';
+import '../riverpod/years_model_riverpod/year_model_provider.dart';
 import 'brand_page.dart';
 
 class VehiclePage extends HookConsumerWidget {
@@ -24,6 +27,16 @@ class VehiclePage extends HookConsumerWidget {
                       enableFeedback: false),
                   onPressed: () {
                     ref
+                        .read(fipeInfoNotifierProvider.notifier)
+                        .getFipeInfo('', '', '', '');
+                    ref
+                        .read(yearModelNotifierProvider.notifier)
+                        .getYearsByModel('', '', '');
+
+                    ref
+                        .read(modelsNotifierProvider.notifier)
+                        .getModelsByBrand('', '');
+                    ref
                         .read(brandsNotifierProvider.notifier)
                         .getBrandsByVehicleType('motos');
                     Navigator.of(context).push(
@@ -36,6 +49,16 @@ class VehiclePage extends HookConsumerWidget {
               ElevatedButton(
                   onPressed: () {
                     ref
+                        .read(fipeInfoNotifierProvider.notifier)
+                        .getFipeInfo('', '', '', '');
+                    ref
+                        .read(yearModelNotifierProvider.notifier)
+                        .getYearsByModel('', '', '');
+
+                    ref
+                        .read(modelsNotifierProvider.notifier)
+                        .getModelsByBrand('', '');
+                    ref
                         .read(brandsNotifierProvider.notifier)
                         .getBrandsByVehicleType('carros');
                     Navigator.of(context).push(
@@ -47,6 +70,16 @@ class VehiclePage extends HookConsumerWidget {
                   child: const Text('Carros')),
               ElevatedButton(
                   onPressed: () {
+                    ref
+                        .read(fipeInfoNotifierProvider.notifier)
+                        .getFipeInfo('', '', '', '');
+                    ref
+                        .read(yearModelNotifierProvider.notifier)
+                        .getYearsByModel('', '', '');
+
+                    ref
+                        .read(modelsNotifierProvider.notifier)
+                        .getModelsByBrand('', '');
                     ref
                         .read(brandsNotifierProvider.notifier)
                         .getBrandsByVehicleType('caminhoes');

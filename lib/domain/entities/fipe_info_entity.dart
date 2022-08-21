@@ -19,23 +19,4 @@ class FipeInfoEntity {
     required this.vehicleType,
     required this.fuelAcronym,
   });
-
-  factory FipeInfoEntity.fromMap(Map<String, dynamic> map) {
-    return FipeInfoEntity(
-      price: map['price'] ?? '',
-      brand: map['brand'] ?? '',
-      model: map['model'] ?? '',
-      modelYear: map['modelYear']?.toInt() ?? 0,
-      fuel: map['fuel'] ?? '',
-      codeFipe: map['codeFipe'] ?? '',
-      referenceMonth: map['referenceMonth'] ?? '',
-      vehicleType: map['vehicleType']?.toInt() ?? 0,
-      fuelAcronym: map['fuelAcronym'] ?? '',
-    );
-  }
-
-  @override
-  String toString() {
-    return 'FipeInfo(price: $price, brand: $brand, model: $model, modelYear: $modelYear, fuel: $fuel, codeFipe: $codeFipe, referenceMonth: $referenceMonth, vehicleType: $vehicleType, fuelAcronym: $fuelAcronym)';
-  }
 }
