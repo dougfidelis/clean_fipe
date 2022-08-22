@@ -13,18 +13,14 @@ class VehiclePage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(122, 203, 188, 1),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
-              ElevatedButton(
-                  style: TextButton.styleFrom(
-                      elevation: 20,
-                      visualDensity:
-                          const VisualDensity(horizontal: 1.0, vertical: 1.0),
-                      enableFeedback: false),
+              TextButton(                  
                   onPressed: () {
                     ref
                         .read(fipeInfoNotifierProvider.notifier)
@@ -45,8 +41,8 @@ class VehiclePage extends HookConsumerWidget {
                       ),
                     );
                   },
-                  child: const Text('Motos')),
-              ElevatedButton(
+                  child: const Text('Motos', style: TextStyle(fontSize: 30),)),
+              TextButton(
                   onPressed: () {
                     ref
                         .read(fipeInfoNotifierProvider.notifier)
@@ -67,8 +63,10 @@ class VehiclePage extends HookConsumerWidget {
                       ),
                     );
                   },
+                  
                   child: const Text('Carros')),
-              ElevatedButton(
+                 const Divider(height: 100, thickness: 2, ),
+              TextButton(
                   onPressed: () {
                     ref
                         .read(fipeInfoNotifierProvider.notifier)

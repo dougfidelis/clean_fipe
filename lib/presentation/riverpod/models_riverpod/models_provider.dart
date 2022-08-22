@@ -9,6 +9,10 @@ import 'models_notifier.dart';
 
 final dioProvider = Provider((ref) => Dio());
 
+final codeModelProvider = StateProvider<String>(
+  (ref) => '',
+);
+
 final modelsByBrandDatasource = Provider((ref) {
   return GetModelsByBrandRemoteDatasourceImp(ref.watch(dioProvider));
 });

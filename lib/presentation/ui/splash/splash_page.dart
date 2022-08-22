@@ -27,7 +27,7 @@ class _SplashPageState extends State<SplashPage> {
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        child: const ColoredBox(color: Colors.pink),
+        child: const ColoredBox(color: Colors.black),
       ),
     );
   }

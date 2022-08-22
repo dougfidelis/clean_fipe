@@ -9,6 +9,10 @@ import 'brands_notifier.dart';
 
 final dioProvider = Provider((ref) => Dio());
 
+final codeBrandProvider = StateProvider<String>(
+  (ref) => '',
+);
+
 final brandsDataSourceProvider = Provider((ref) {
   return GetBrandsByVehicleTypeRemoteDatasourceImp(ref.watch(dioProvider));
 });
