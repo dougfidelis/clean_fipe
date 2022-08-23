@@ -14,9 +14,7 @@ class GetModelsByBrandRemoteDatasourceImp
   Future<List<ModelEntity>> getModelsByBrand(
       String vehicleType, String brandCode) async {
     List<ModelEntity> models = [];
-    if (brandCode == '') {
-      return [];
-    } else {
+    
       try {
         final response = await _dio.get(
             'https://parallelum.com.br/fipe/api/v2/$vehicleType/brands/$brandCode/models');
@@ -31,6 +29,6 @@ class GetModelsByBrandRemoteDatasourceImp
       }
 
       return models;
-    }
+    
   }
 }

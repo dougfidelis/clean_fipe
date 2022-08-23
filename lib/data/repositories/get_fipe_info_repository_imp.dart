@@ -8,7 +8,7 @@ class GetFipeInfoRepositoryImp implements GetFipeInfoRepository {
   GetFipeInfoRepositoryImp(this._datasource);
 
   @override
-  Future<List<FipeInfoEntity>> getFipeInfo(String vehicleType, String brandCode,
+  Future<FipeInfoEntity> getFipeInfo(String vehicleType, String brandCode,
       String modelCode, String yearCode) async {
     return await _datasource.getFipeInfo(
         vehicleType, brandCode, modelCode, yearCode);

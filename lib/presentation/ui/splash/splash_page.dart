@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../vehicle_type_page.dart';
+import 'vehicle_type/vehicle_type_page.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);

@@ -13,7 +13,7 @@ class GetBrandsByVehicleTypeRemoteDatasourceImp
   @override
   Future<List<BrandEntity>> getBrandsByVehicleType(String vehicleType) async {
     List<BrandEntity> brands = [];
-
+   
     try {
       final response = await _dio
           .get('https://parallelum.com.br/fipe/api/v2/$vehicleType/brands');

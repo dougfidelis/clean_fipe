@@ -22,6 +22,6 @@ final fipeInfoUsecase = Provider((ref) {
 });
 
 final fipeInfoNotifierProvider =
-    StateNotifierProvider<FipeInfoNotifier, List<FipeInfoEntity>>((ref) {
+    StateNotifierProvider<FipeInfoNotifier, FipeInfoEntity?>((ref) {
   return FipeInfoNotifier(ref.watch(fipeInfoUsecase));
 });
