@@ -17,12 +17,10 @@ class VehicleTypeButton extends HookConsumerWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final ic = ref.watch(brandsNotifierProvider);
+    Color beige = Colors.white;
     return MaterialButton(
-      onPressed: () async {
-        await ref
-            .read(brandsNotifierProvider.notifier)
-            .getBrandsByVehicleType(type);
+      onPressed: () {
+        ref.read(brandsNotifierProvider.notifier).getBrandsByVehicleType(type);
         ref.read(fipeInfoNotifierProvider.notifier).getFipeInfo('', '', '', '');
         ref
             .read(yearModelNotifierProvider.notifier)
@@ -35,20 +33,19 @@ class VehicleTypeButton extends HookConsumerWidget {
           ),
         );
       },
-      child: Container(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Visibility(
-              replacement: CircularProgressIndicator(),
-              visible: ic.isEmpty,
-              child: const Icon(Icons.add)),
-            Text(
-              name,
-              style: const TextStyle(fontSize: 30),
-            ),
-          ],
-        ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          type == 'carros'
+              ?  Icon(Icons.directions_car, color: beige,)
+              : type == 'motos'
+                  ? Icon(Icons.two_wheeler, color: beige,)
+                  :  Icon(Icons.local_shipping, color: beige),
+          Text(
+            name,
+            style:  TextStyle(fontSize: 30, color: beige, fontWeight: FontWeight.w300,),
+          ),
+        ],
       ),
     );
   }

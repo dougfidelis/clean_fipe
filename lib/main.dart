@@ -15,10 +15,12 @@ class MyApp extends HookConsumerWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const SplashPage(),
-      theme: ThemeData(primarySwatch: Colors.teal, 
+      
+      theme: ThemeData(
+        primarySwatch: Colors.grey,
 
       ),
     
     );
-  }
+  }   
 }

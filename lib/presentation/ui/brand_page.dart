@@ -33,15 +33,16 @@ class BrandPage extends HookConsumerWidget {
       body: SingleChildScrollView(scrollDirection: Axis.vertical
       ,
         child: SafeArea(
-          child: Row(
-            children: [Text(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
                     'Consulta por $name',
                     style: const TextStyle(fontSize: 22),
                   ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Visibility(
@@ -92,7 +93,7 @@ class BrandPage extends HookConsumerWidget {
                                     ref
                                         .read(yearModelNotifierProvider.notifier)
                                         .getYearsByModel(vehicleType!, '', '');
-      
+                
                                     ref
                                         .read(modelsNotifierProvider.notifier)
                                         .getModelsByBrand(
@@ -221,8 +222,8 @@ class BrandPage extends HookConsumerWidget {
                   Visibility(
                     visible: fipeInfo != null,
                     // replacement:  CircularProgressIndicator(),
-      
-                    child: ElevatedButton(
+                
+                    child: ElevatedButton(style: ButtonStyle( ),
                       onPressed: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
@@ -230,12 +231,12 @@ class BrandPage extends HookConsumerWidget {
                           ),
                         );
                       },
-                      child: const Text('Consultar'),
+                      child: const Text('Consultar',),
                     ),
                   )
                 ],
               ),
-            ],
+            ),
           ),
         ),
       ),
