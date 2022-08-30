@@ -5,6 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../riverpod/brands_riverpod/brands_provider.dart';
 import '../riverpod/fipe_info_riverpod/fipe_info_provider.dart';
 import '../riverpod/models_riverpod/models_provider.dart';
+import '../riverpod/years_brand_riverpod/year_brand_provider.dart';
 import '../riverpod/years_model_riverpod/year_model_provider.dart';
 
 class BrandPage extends HookConsumerWidget {
@@ -17,6 +18,7 @@ class BrandPage extends HookConsumerWidget {
     final brands = ref.watch(brandsNotifierProvider);
     final models = ref.watch(modelsNotifierProvider);
     final years = ref.watch(yearModelNotifierProvider);
+    final yearsBrand = ref.watch(yearBrandNotifierProvider);
     final fipeInfo = ref.watch(fipeInfoNotifierProvider);
     String? codeBrandProv = ref.watch(codeBrandProvider);
     String? codeModelProv = ref.watch(codeModelProvider);
@@ -27,6 +29,7 @@ class BrandPage extends HookConsumerWidget {
     String? modelCode;
     String? yearName;
     String? yearCode;
+    String? yearByBrand;
 
     return Scaffold(
       backgroundColor: Colors.teal.shade50,
@@ -91,6 +94,9 @@ class BrandPage extends HookConsumerWidget {
                                     brandCode = brand.codeBrand;
                                     debugPrint('$vehicleType 1=> $brandCode');
                                     ref
+                                        .read(yearBrandNotifierProvider.notifier)
+                                        .getYearsByBrand(vehicleType!, brandCode!);
+                                    ref
                                         .read(yearModelNotifierProvider.notifier)
                                         .getYearsByModel(vehicleType!, '', '');
                 
@@ -109,6 +115,69 @@ class BrandPage extends HookConsumerWidget {
                           const SizedBox(
                             height: 30,
                           ),
+                          //=============================================================ano
+                          Visibility(visible: yearsBrand.isEmpty,
+                            replacement: ButtonTheme(
+                              alignedDropdown: true,
+                              child: DropdownButtonFormField(
+                                isExpanded: true,
+                                decoration: InputDecoration(
+                                  label: const Text(
+                                    'Ano',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
+                                // dropdownColor: Colors.amber,
+                                items: yearsBrand
+                                    .map(
+                                      (year) => DropdownMenuItem<String>(
+                                        alignment:
+                                            AlignmentDirectional.bottomCenter,
+                                        value: year.name,
+                                        child: Text(year.name),
+                                      ),
+                                    )
+                                    .toList(),
+                                value: yearByBrand,
+                                hint: const Text(
+                                  'Selecione o ano',
+                                  style: TextStyle(color: Colors.black45),
+                                ),
+                                onChanged: (value) {
+                                  ref
+                                      .read(fipeInfoNotifierProvider.notifier)
+                                      .getFipeInfo('', '', '', '');
+                                  yearByBrand = value.toString();
+                                  // for (var year in yearsBrand) {
+                                  //   if (year.brandName == value) {
+                                  //     brandCode = brand.codeBrand;
+                                  //     debugPrint('$vehicleType 1=> $brandCode');
+                                  //     ref
+                                  //         .read(yearModelNotifierProvider.notifier)
+                                  //         .getYearsByModel(vehicleType!, '', '');
+                                          
+                                  //     ref
+                                  //         .read(modelsNotifierProvider.notifier)
+                                  //         .getModelsByBrand(
+                                  //             vehicleType!, (brandCode) ?? '');
+                                  //     break;
+                                  //   }
+                                  // }
+                                  ref.watch(codeBrandProvider.state).state =
+                                      brandCode!;
+                                },
+                              ),
+                            ), child: Text(""),
+                          ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          //==============================================================================
                           Visibility(
                             visible: models.isNotEmpty,
                             replacement:
@@ -154,9 +223,9 @@ class BrandPage extends HookConsumerWidget {
                                     debugPrint(
                                         'type: $vehicleType -- brandId: $brandCode -- modelId: $modelCode');
                                     ref
-                                        .read(yearModelNotifierProvider.notifier)
-                                        .getYearsByModel(vehicleType!,
-                                            codeBrandProv!, modelCode!);
+                                        .read(yearBrandNotifierProvider.notifier)
+                                        .getYearsByBrand(vehicleType!,
+                                            codeBrandProv!,);
                                     break;
                                   }
                                 }
