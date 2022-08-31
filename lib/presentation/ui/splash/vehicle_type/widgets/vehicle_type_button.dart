@@ -26,7 +26,7 @@ class VehicleTypeButton extends HookConsumerWidget {
             .read(yearModelNotifierProvider.notifier)
             .getYearsByModel('', '', '');
 
-        ref.read(modelsNotifierProvider.notifier).getModelsByBrand('', '');
+        ref.read(modelsNotifierProvider.notifier).getModelsByBrand('', '', '');
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) => BrandPage(type, name),

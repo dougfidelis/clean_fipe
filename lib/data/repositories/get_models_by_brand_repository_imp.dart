@@ -10,8 +10,8 @@ class GetModelsByBrandRepositoryImp implements GetModelsByBrandRepository{
 
 
   @override
-  Future<List<ModelEntity>> getModelsbyBrand(String vehicleType, String brandCode) async {
-    return await _datasource.getModelsByBrand(vehicleType, brandCode);
+  Future<List<ModelEntity>> getModelsbyBrand(String vehicleType, String brandCode, String yearCode) async {
+    return await _datasource.getModelsByBrand(vehicleType, brandCode, yearCode);
   }
   
 }

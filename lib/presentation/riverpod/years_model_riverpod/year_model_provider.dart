@@ -9,6 +9,10 @@ import 'years_model_notifier.dart';
 
 final dioProvider = Provider((ref) => Dio());
 
+final codeYearProvider = StateProvider<String>(
+  (ref) => '',
+);
+
 final yearModelDatasource = Provider((ref) {
   return GetYearsByModelRemoteDatasourceImp(ref.watch(dioProvider));
 });

@@ -7,8 +7,8 @@ class ModelsNotifier extends StateNotifier<List<ModelEntity>> {
   final GetModelsByBrandUsecase _usecase;
   ModelsNotifier(this._usecase) : super([]);
 
-  Future<void> getModelsByBrand(String vehicleType, String brandName) async {
+  Future<void> getModelsByBrand(String vehicleType, String brandName, String yearCode) async {
     state = [];
-    state = await _usecase.getBrandsByVehicleType(vehicleType, brandName);
+    state = await _usecase.getBrandsByVehicleType(vehicleType, brandName, yearCode);
   }
 }

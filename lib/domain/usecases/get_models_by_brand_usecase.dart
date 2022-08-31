@@ -3,7 +3,7 @@ import 'package:clean_fipe/domain/repositories/get_models_by_brand_repository.da
 
 abstract class GetModelsByBrandUsecase {
   Future<List<ModelEntity>> getBrandsByVehicleType(
-      String vehicleType, String brandName);
+      String vehicleType, String brandName, String yearCode);
 }
 
 
@@ -12,8 +12,8 @@ class GetModelsByBrandUsecaseImp implements GetModelsByBrandUsecase{
   GetModelsByBrandUsecaseImp(this._repository);
 
   @override
-  Future<List<ModelEntity>> getBrandsByVehicleType(String vehicleType, String brandName) async {
-   return await _repository.getModelsbyBrand(vehicleType, brandName);
+  Future<List<ModelEntity>> getBrandsByVehicleType(String vehicleType, String brandName, String yearCode) async {
+   return await _repository.getModelsbyBrand(vehicleType, brandName, yearCode);
   }
   
 }

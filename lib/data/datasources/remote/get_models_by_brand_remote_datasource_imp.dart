@@ -12,12 +12,13 @@ class GetModelsByBrandRemoteDatasourceImp
 
   @override
   Future<List<ModelEntity>> getModelsByBrand(
-      String vehicleType, String brandCode) async {
+      String vehicleType, String brandCode, String yearCode) async {
     List<ModelEntity> models = [];
     
       try {
-        final response = await _dio.get(
-            'https://parallelum.com.br/fipe/api/v2/$vehicleType/brands/$brandCode/models');
+        final response = await _dio.get("https://parallelum.com.br/fipe/api/v2/$vehicleType/brands/$brandCode/years/$yearCode/models");
+            //'https://parallelum.com.br/fipe/api/v2/$vehicleType/brands/$brandCode/models');
+
 
         models = List.from(
           response.data.map((model) {

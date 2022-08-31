@@ -103,7 +103,7 @@ class BrandPage extends HookConsumerWidget {
                                     ref
                                         .read(modelsNotifierProvider.notifier)
                                         .getModelsByBrand(
-                                            vehicleType!, (brandCode) ?? '');
+                                            vehicleType!, (brandCode) ?? '', yearCode!);
                                     break;
                                   }
                                 }
@@ -153,9 +153,10 @@ class BrandPage extends HookConsumerWidget {
                                       .read(fipeInfoNotifierProvider.notifier)
                                       .getFipeInfo('', '', '', '');
                                   yearByBrand = value.toString();
-                                  // for (var year in yearsBrand) {
-                                  //   if (year.brandName == value) {
-                                  //     brandCode = brand.codeBrand;
+                                  
+                                   for (var year in yearsBrand) {
+                                     if (year.name == value) {
+                                       yearCode = year.code;
                                   //     debugPrint('$vehicleType 1=> $brandCode');
                                   //     ref
                                   //         .read(yearModelNotifierProvider.notifier)
@@ -165,11 +166,11 @@ class BrandPage extends HookConsumerWidget {
                                   //         .read(modelsNotifierProvider.notifier)
                                   //         .getModelsByBrand(
                                   //             vehicleType!, (brandCode) ?? '');
-                                  //     break;
-                                  //   }
-                                  // }
-                                  ref.watch(codeBrandProvider.state).state =
-                                      brandCode!;
+                                      break;
+                                     }
+                                   }
+                                  ref.watch(codeYearProvider.state).state =
+                                      yearCode!;
                                 },
                               ),
                             ), child: Text(""),
